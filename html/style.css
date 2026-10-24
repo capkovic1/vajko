@@ -1,0 +1,374 @@
+/* --- 1. ZÁKLADNÉ NASTAVENIA A PREMENNÉ --- */
+:root {
+    --primary-color: #007bff; /* Modrá z vášho návrhu */
+    --primary-hover: #0056b3;
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #6c757d;
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    padding: 10px 24px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-large {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    background: #fff;
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+.btn-large:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* --- 3. HLAVIČKA A NAVIGÁCIA --- */
+.site-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    font-weight: 300;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a:not(.btn) {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.main-nav a:not(.btn):hover {
+    color: var(--primary-color);
+}
+
+/* Skryté mobilné menu */
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+/* --- 4. HERO SEKCE (Úvod) --- */
+.hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* --- 5. SEKCIE A GRID (E-shop) --- */
+.section {
+    padding: 60px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- 6. KARTY PRODUKTOV --- */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.card-image {
+    background: #e9ecef;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.rating {
+    font-size: 0.9rem;
+    color: #ffc107;
+}
+
+/* --- 7. PÄTIČKA --- */
+.site-footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-info h3 {
+    margin-bottom: 15px;
+}
+
+.footer-info p {
+    color: #adb5bd;
+    margin-bottom: 5px;
+}
+
+.footer-copy {
+    text-align: center;
+    color: #6c757d;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* --- 8. RESPONZIVITA (Mobil) --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    /* Zobrazenie menu po kliknutí na hamburger (bez JS) */
+    .menu-toggle:checked ~ .main-nav {
+        display: flex;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
+}
+/* =========================================
+   DOPLNENIE PRE E-SHOP STRÁNKU
+   ========================================= */
+
+/* 1. Aktívny odkaz v navigácii (aby bolo vidno, na ktorej sme stránke) */
+.main-nav a.active {
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* 2. Úprava karty, keďže je to teraz odkaz (<a>) */
+.card {
+    text-decoration: none; /* Odstráni podčiarknutie odkazu */
+    color: inherit;        /* Zdedí farbu textu, nie modrú farbu odkazu */
+    cursor: pointer;
+}
+
+/* 3. Jemný efekt na obrázok pri prejdení myšou (voliteľné, ale pekné) */
+.card:hover .card-image {
+    background-color: #dee2e6; /* Jemne stmavne pozadie fotky */
+}
+
+/* 4. Úprava nadpisu H1, aby nebol príliš veľký (keďže ho máme v sekcii) */
+.section-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+/* 5. Oprava paddingu pre karty, aby mali fotky pekný pomer */
+.card-image {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* 6. Ak používaš rating s hviezdičkami, nastavíme im farbu */
+.rating {
+    color: var(--text-muted); /* Sivá farba pre "***** XX" */
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* 7. Oprava pre mobil - ak je karta odkaz, nesmie sa lámať text divne */
+@media (max-width: 768px) {
+    .section-header h1 {
+        font-size: 2rem;
+    }
+}
