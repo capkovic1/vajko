@@ -1,5 +1,8 @@
 <?php
 
+$currentController = $_GET['c'] ?? 'home';
+$currentAction = $_GET['a'] ?? 'index';
+
 /** @var string $contentHTML */
 /** @var \Framework\Auth\AppUser $user */
 /** @var \Framework\Support\LinkGenerator $link */
@@ -14,16 +17,24 @@
 <body>
 <header class="site-header">
     <div class="container header-inner">
-        <a href="#" class="logo">TRICKING<span>WORKSHOP</span></a>
+        <a href="<?= $link->url('home.index') ?>" class="logo">TRICKING<span>WORKSHOP</span></a>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger">&#9776;</label>
 
         <nav class="main-nav">
             <ul>
-                <li><a href="<?= $link->url('eshop') ?>">E-shop</a></li>
-                <li><a href="#info">Informácie</a></li>
-                <li><a href="#workshopy">Workshopy</a></li>
+                <!-- Ak je controller 'eshop', pridaj triedu 'active', inak nič -->
+                <li>
+                    <a href="<?= $link->url('home.eshop') ?>" class="<?= ($currentAction === 'eshop') ? 'active' : '' ?>">
+                        E-shop
+                    </a>
+                </li>
+                <li><!-- Informácie sú aktívne, ak sme na domovskej stránke a akcia NIE JE e-shop (alebo je 'index') -->
+                    <a href="<?= $link->url('home.info')?>" class="<?= ( $currentAction === 'info') ? 'active' : '' ?>">
+                        Informácie
+                    </a>
+                </li>
             </ul>
             <a href="#registracia" class="btn btn-primary nav-btn">Prihlásiť sa</a>
         </nav>

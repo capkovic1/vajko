@@ -25,6 +25,11 @@ class HomeController extends BaseController
      */
     public function index(Request $request): Response
     {
+        return $this->home($request);
+    }
+
+    public function home(Request $request): Response
+    {
         // 1. Pripravíme si dáta, ktoré chceme poslať do HTML šablóny
         $workshopy = [
             ['nazov' => 'Workshop Bratislava', 'cena' => '39,99 €'],
@@ -49,23 +54,31 @@ class HomeController extends BaseController
             [
                 'name' => 'Tričko Tricking',
                 'price' => '19,99 €',
-                'rating' => '⭐ 5.0'
+                'rating' => '⭐ 5.0',
+                'image' => 'images/tshirt.png' // Zmenené zo zložitej cesty
             ],
             [
                 'name' => 'Tepláky',
                 'price' => '39,99 €',
-                'rating' => '⭐ 4.8'
+                'rating' => '⭐ 4.8',
+                'image' => 'images/tshirt.png'
             ],
             [
                 'name' => 'Mikina Tricking',
                 'price' => '49,99 €',
-                'rating' => '⭐ 4.9'
+                'rating' => '⭐ 4.9',
+                'image' => 'images/tshirt.png'
             ]
-
         ];
 
         return $this->html([
             'produkty' => $produkty
+        ]);
+    }
+    public function info(Request $request): Response
+    {
+        return $this->html([
+            $request
         ]);
     }
 }

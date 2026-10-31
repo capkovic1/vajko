@@ -118,6 +118,12 @@ body {
     gap: 25px;
 }
 
+.main-nav a.active {
+    text-decoration: underline;
+    /* prípadne iný štýl, napr. hrubšie písmo */
+    font-weight: bold;
+}
+
 .main-nav a:not(.btn) {
     text-decoration: none;
     color: var(--text-main);
